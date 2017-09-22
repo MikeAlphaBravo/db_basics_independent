@@ -1,0 +1,25 @@
+<h2><%= @project.title() %></h2>
+
+<h3>Add a volunteer to this project:</h3>
+  <form action="/project_info" method="post">
+    <div class="form-group">
+      <label for="name" class="form-label">Volunteer's name:</label>
+      <input type="text" name="title" class="form-control" id="name" placeholder="Sam Smithers" autofocus><br>
+      <button type="button" class="button btn">Add Volunteer</button>
+    </div>
+  </form>
+
+<% if @volunteers.any?() %>
+  <h3>This project's current volunteers are:</h3>
+
+  <ul>
+    <% @volunteers.each() do |volunteer| %>
+      <li><a href="/project_info/<%= volunteer.id() %>"><%= volunteer.name() %></a></li>
+    <% end %>
+  </ul>
+
+<% else %>
+
+  <p>There are currently no volunteers for this project.</p>
+
+<% end %>
