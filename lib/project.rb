@@ -26,10 +26,6 @@ class Project
     title.==(another_project.title).&(id.==(another_project.id))
   end
 
-  # def id
-  #
-  # end
-
   def self.find(id)
     result = DB.exec("SELECT * FROM projects WHERE id = #{id};")
     title = result.first["title"]

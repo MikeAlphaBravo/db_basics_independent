@@ -11,6 +11,22 @@ describe Project do
     end
   end
 
+  context '#id' do
+    it 'returns the id of the project before saving project' do
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      expect(project.id).to eq nil
+    end
+
+    it 'returns the id of the project after saving project' do
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project.save
+      expect(project.id).to be_kind_of Integer
+      #expect(project.id).to be_instance_of Fixnum
+      #instance_of only checks immediate class which is Fixnum
+      #kind_of checks full class hierarchy.
+    end
+  end
+
   context '.all' do
     it 'is empty to start' do
       expect(Project.all).to eq []
@@ -41,21 +57,6 @@ describe Project do
     end
   end
 
-  # context '#id' do
-  #   it 'returns the id of the project before saving project' do
-  #     project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-  #     expect(project.id).to eq nil
-  #   end
-  #
-  #   it 'returns the id of the project after saving project' do
-  #     project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-  #     project.save
-  #     expect(project.id).to be_an_instance_of Integer
-  #   end
-  # end
-
-  #
-  #
   describe '.find' do
     it 'returns a project by id' do
       project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
