@@ -20,8 +20,9 @@ class Volunteer
   end
 
   def save
-    result = DB.exec("INSERT INTO volunteers (name) VALUES ('#{name}') RETURNING id;")
+    result = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{name}', #{project_id}) RETURNING id, project_id;")
     @id = result.first["id"].to_i
+    @project_id = result.first["project_id"].to_i
   end
 
   def ==(another_volunteer)
