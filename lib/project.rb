@@ -47,4 +47,11 @@ class Project
     end
     project_volunteers
   end
+
+  def update(attributes)
+    title = attributes[:title]
+    id = attributes[:id]
+    DB.exec("UPDATE projects SET title = '#{title}' WHERE id = #{self.id};")
+    @title = title
+  end
 end
