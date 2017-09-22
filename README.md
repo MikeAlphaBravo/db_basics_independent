@@ -6,21 +6,20 @@
 
 ## Description
 
-_Create..._
+_This will create a database and interactive website to create projects and add volunteers to those projects._
 
 ## Specs
 
-http://www.tablesgenerator.com/markdown_tables
-
-
-
 ## Setup/Installation Requirements
 
-1. _..._
+1. _go to my github of https://github.com/MikeAlphaBravo/db_basics_independent and download and activate database to run a project setup and volunteer table. Use:
+createdb volunteer_tracker
+psql volunteer_tracker < my_database_backup.sql
+createdb -T volunteer_tracker volunteer_tracker_test_
 
 ## Known Bugs
 
-_..._
+_Incomplete code not passing last integration spec and not cleaned up code with an error where the name populates but does not show_
 
 ## Support and contact details
 
