@@ -35,4 +35,16 @@ class Project
     title = result.first["title"]
     Project.new({:title => title, :id => id})
   end
+
+  def volunteers
+    project_volunteers = []
+    volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{self.id};")
+    volunteers.each() do |volunteer|
+      name = volunteer["name"]
+      project_id = volunteer["project_id"].to_i
+      id = volunteer["id"].to_i
+      project_volunteers.push(Volunteer.new({:name => name, :project_id => project_id, :id => id}))
+    end
+    project_volunteers
+  end
 end
