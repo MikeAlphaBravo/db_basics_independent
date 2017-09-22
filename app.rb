@@ -30,7 +30,6 @@ end
 
 get("/projects/:id") do
   find_project
-  binding.pry
   erb(:project_info)
 end
 
