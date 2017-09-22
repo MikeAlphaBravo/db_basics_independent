@@ -18,12 +18,21 @@ class Project
   end
 
   def save
-    input = DB.exec("INSERT INTO projects (title) VALUES ('#{title}') RETURNING id;")
-    @id = input.first["id"].to_i
+    result = DB.exec("INSERT INTO projects (title) VALUES ('#{title}') RETURNING id;")
+    @id = result.first["id"].to_i
   end
 
   def ==(another_project)
     title.==(another_project.title).&(id.==(another_project.id))
   end
 
+  # def id
+  #
+  # end
+
+  def self.find(id)
+    result = DB.exec("SELECT * FROM projects WHERE id = #{id};")
+    title = result.first["title"]
+    Project.new({:title => title, :id => id})
+  end
 end
