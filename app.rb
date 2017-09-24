@@ -51,10 +51,34 @@ post("/projects/:id/delete") do
   redirect "/"
 end
 
-get("/volunteers/:id") do
 
+
+
+get("/volunteers/:id") do
+  find_volunteer
+  erb(:volunteer_info)
 end
+
+post("/volunteers/:id/update") do
+  find_volunteer
+  name = params["name"]
+  @volunteer.update({:name => name, :id => @volunteer.id})
+  redirect "/projects/#{@volunteer.project_id}"
+end
+
+post("/volunteers/:id/delete") do
+  find_volunteer
+  @volunteer.delete
+  redirect "/projects/#{@volunteer.project_id}"
+end
+
+
+
 
 def find_project
   @project = Project.find(params.fetch("id").to_i)
+end
+
+def find_volunteer
+  @volunteer = Volunteer.find(params.fetch("id").to_i)
 end

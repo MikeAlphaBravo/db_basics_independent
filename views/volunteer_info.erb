@@ -1,0 +1,12 @@
+<h3>Edit this project:</h3>
+  <form action="/volunteers/<%= @volunteer.id %>/update" method="post">
+    <div class="form-group">
+      <label for="title" class="form-label">Edit your volunteer:</label>
+      <input type="text" name="name" value="<%= @volunteer.name %>" class="form-control" id="name" placeholder="Sam Schmit" autofocus><br>
+      <button type="submit" class="button btn">Update Volunteer</button>
+    </div>
+  </form>
+
+  <form action="/volunteers/<%= @volunteer.id %>/delete" method="post">
+    <button type="submit">Delete Volunteer</button>
+  </form>
