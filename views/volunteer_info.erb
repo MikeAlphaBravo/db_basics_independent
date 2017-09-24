@@ -1,4 +1,4 @@
-<h3>Edit this project:</h3>
+<h3>Edit this volunteer:</h3>
   <form action="/volunteers/<%= @volunteer.id %>/update" method="post">
     <div class="form-group">
       <label for="title" class="form-label">Edit your volunteer:</label>
@@ -9,4 +9,6 @@
 
   <form action="/volunteers/<%= @volunteer.id %>/delete" method="post">
     <button type="submit">Delete Volunteer</button>
-  </form>
+  </form><br>
+
+  <p><a href="/">Return to Main Page</a></p>
