@@ -19,7 +19,7 @@ createdb -T volunteer_tracker volunteer_tracker_test_
 
 ## Known Bugs
 
-_Incomplete code not passing last integration spec and not cleaned up code with an error where the name populates but does not show_
+_Currently tested to working specs but will continue to dig into it._
 
 ## Support and contact details
 
